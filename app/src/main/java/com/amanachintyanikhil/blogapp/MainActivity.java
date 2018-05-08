@@ -218,26 +218,30 @@ public class MainActivity extends AppCompatActivity {
 
         public void setLikeButton(final String key)
         {
-            mLike.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
 
-                    if(dataSnapshot.child(key).hasChild(mauth.getCurrentUser().getUid()))
-                    {
-                        likebutton.setImageResource(R.drawable.thumbs_red);
+            if(mauth.getCurrentUser()!=null) {
+                mLike.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        if (dataSnapshot.child(key).hasChild(mauth.getCurrentUser().getUid())) {
+                            likebutton.setImageResource(R.drawable.thumbs_red);
+                        } else {
+                            likebutton.setImageResource(R.drawable.thums_grey);
+                        }
                     }
-                    else
-                    {
-                        likebutton.setImageResource(R.drawable.thums_grey);
+
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
                     }
-                }
-
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
+                });
+            }
+            else
+            {
+                
+            }
         }
         public void setTitle(String title)
         {
