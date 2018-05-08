@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context="com.amanachintyanikhil.blogapp.BlogSingleActivity">
 
     <android.support.v7.widget.Toolbar
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/tb"
-        android:background="@color/lightred"
+        android:background="@color/back"
         ></android.support.v7.widget.Toolbar>
 
     <ImageView
@@ -21,7 +23,6 @@
         android:layout_below="@+id/tb"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-
         app:srcCompat="@drawable/add_btn" />
 
     <TextView
@@ -37,7 +38,10 @@
         android:layout_below="@+id/blogimage"
         android:layout_marginTop="28dp"
         android:background="@drawable/textview_background"
-        android:hint="Title" />
+        android:hint="Title"
+        android:textColorHint="#000"
+        android:textStyle="bold"
+        android:textAlignment="center"/>
 
     <TextView
         android:id="@+id/description"
@@ -55,7 +59,10 @@
         android:paddingLeft="10dp"
         android:hint="Description"
         android:layout_alignParentStart="true"
-        android:inputType="textMultiLine" />
+        android:inputType="textMultiLine"
+        android:textColorHint="#000"
+        android:textStyle="bold"
+        android:textAlignment="center"/>
 
     <Button
         android:id="@+id/removepost"
@@ -63,11 +70,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:background="@color/lightred"
+        android:background="@color/back"
         android:textAllCaps="false"
         android:textColor="@color/yellow"
         android:textSize="18sp"
         android:visibility="invisible"
-        android:text="Remove post" />
+        android:text="Remove post"
+        android:textStyle="bold"/>
 
 </RelativeLayout>

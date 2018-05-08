@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -71,8 +72,7 @@ public class CommentActivity extends AppCompatActivity {
             {
                 name=dataSnapshot.child("name").getValue().toString();
                 photo=dataSnapshot.child("image").getValue().toString();
-
-                blogid=mComment.child(postid);
+                blogid=mComment.child(postid).push();
             }
 
             @Override
@@ -102,6 +102,7 @@ public class CommentActivity extends AppCompatActivity {
             @Override
             protected void populateViewHolder(BlogViewHolder viewHolder, Comment model, int position)
             {
+                Log.d("MODEL:", "populateViewHolder: "+model.getComment()+"\n"+model.getUsername());
                viewHolder.setUsername(model.getUsername());
                viewHolder.setComment(model.getComment());
                viewHolder.setImage(model.getImage(),getApplicationContext());

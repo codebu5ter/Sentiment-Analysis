@@ -96,7 +96,7 @@ public class SetupActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent galleryintent=new Intent(Intent.ACTION_GET_CONTENT);
-                galleryintent.setType("image/+");
+                galleryintent.setType("image/*");
                 startActivityForResult(galleryintent,PICK);
             }
         });

@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     ActivityOptions activityOptions=ActivityOptions.makeSceneTransitionAnimation(MainActivity.this);
                     Intent loginactivity=new Intent(MainActivity.this,FrontActivity.class);
                     loginactivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(loginactivity,activityOptions.toBundle());
+                    startActivity(loginactivity);
                 }
             }
         };
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 viewHolder.commentbutton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent commentactivity=new Intent(MainActivity.this, CommentActivity.class);
+                        Intent commentactivity=new Intent(MainActivity.this, CommentNewActivity.class);
                         commentactivity.putExtra("postkey",post_key);
                         startActivity(commentactivity);
                     }
@@ -240,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
             }
             else
             {
-                
+
             }
         }
         public void setTitle(String title)

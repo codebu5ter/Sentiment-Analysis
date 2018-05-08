@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginbackground"
+    android:background="@color/back"
+    android:padding="10dp"
     tools:context="com.amanachintyanikhil.blogapp.LoginActivity">
 
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:background="@color/theme_primary"
+        android:background="@color/back"
         android:id="@+id/tb"
         ></android.support.v7.widget.Toolbar>
 
@@ -41,7 +42,8 @@
         android:padding="10dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/textview_background"
-        android:hint="Name...." />
+        android:hint="Name...."
+        android:textColorHint="#000"/>
 
     <EditText
         android:id="@+id/editText3"
@@ -56,6 +58,7 @@
         android:background="@drawable/textview_background"
         android:inputType="textPassword"
         android:hint="Password...."
+        android:textColorHint="#000"
         />
 
     <Button
@@ -77,10 +80,11 @@
         android:id="@+id/imageButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_above="@+id/login"
         android:layout_alignEnd="@+id/editText3"
-        android:background="@color/gainsboro"
+        android:layout_marginBottom="6dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/back"
         app:srcCompat="@drawable/eye1" />
 
     <TextView
@@ -119,8 +123,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView3"
         android:layout_marginLeft="85dp"
-        android:layout_marginTop="74dp"
-
-         />
+        android:layout_marginTop="40dp"
+        />
 
 </RelativeLayout>

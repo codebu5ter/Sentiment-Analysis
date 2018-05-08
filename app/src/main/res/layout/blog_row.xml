@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <android.support.v7.widget.CardView
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -54,9 +52,7 @@
             android:padding="10dp"
             android:text="Post desc is displayed here"
             android:textIsSelectable="true"
-            android:textSize="15sp"
-
-            />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/username"
@@ -71,7 +67,6 @@
             android:textColor="@color/slate"
             android:textIsSelectable="true"
             android:textSize="16sp"
-
             android:textStyle="italic" />
 
         <RelativeLayout
@@ -102,7 +97,6 @@
                 android:layout_toEndOf="@+id/likebtn_grey"
                 app:srcCompat="@drawable/comment" />
         </RelativeLayout>
-
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

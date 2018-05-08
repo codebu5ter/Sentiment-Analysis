@@ -107,7 +107,6 @@
                 android:hint="gender"
                 android:textSize="20sp"
                 android:textAlignment="center"
-
                 android:textColor="@color/slate"
                 android:layout_weight="1"
                 android:layout_gravity="center"
@@ -122,12 +121,10 @@
                 android:layout_width="wrap_content"
                 android:textSize="18sp"
                 android:textAlignment="textStart"
-
                 android:paddingLeft="20dp"
                 android:textStyle="bold"
                 android:textColor="@color/slate"
                 android:layout_weight="1"
-
                 ></TextView>
 
             <EditText
@@ -138,7 +135,6 @@
                 android:cursorVisible="false"
                 android:textColor="@color/slate"
                 android:layout_weight="1"
-
                 android:id="@+id/dob"
                 ></EditText>
 
@@ -151,7 +147,6 @@
             android:textSize="18sp"
             android:textAlignment="textStart"
             android:paddingLeft="20dp"
-
             android:textStyle="bold"
             android:textColor="@color/slate"
             android:layout_weight="1"
@@ -162,10 +157,8 @@
             android:hint="phone"
             android:textSize="20sp"
             android:textAlignment="center"
-
             android:textColor="@color/slate"
             android:layout_weight="1"
-
             android:id="@+id/phone"
             ></TextView>
 </TableRow>
@@ -178,7 +171,6 @@
                 android:textSize="18dp"
                 android:textAlignment="textStart"
                 android:paddingLeft="20dp"
-
                 android:textStyle="bold"
                 android:textColor="@color/slate"
                 android:layout_weight="1"
@@ -189,10 +181,8 @@
                 android:hint="email"
                 android:textSize="17sp"
                 android:textAlignment="center"
-
                 android:textColor="@color/slate"
                 android:layout_weight="1"
-
                 android:id="@+id/email"
                 ></TextView>
         </TableRow>

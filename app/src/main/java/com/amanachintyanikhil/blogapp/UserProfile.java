@@ -78,7 +78,7 @@ public class UserProfile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent gallery=new Intent(Intent.ACTION_GET_CONTENT);
-                gallery.setType("image/+");
+                gallery.setType("image/*");
                 startActivityForResult(gallery,PICK);
 
             }

@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@color/white"
     tools:context="com.amanachintyanikhil.blogapp.PostActivity">
 
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:background="@color/theme_primary"
+        android:background="@color/back"
         android:id="@+id/tb"
         ></android.support.v7.widget.Toolbar>
 
@@ -39,7 +39,8 @@
         android:padding="12dp"
         android:background="@drawable/textview_background"
         android:inputType="textPersonName"
-        android:hint="Post title....." />
+        android:hint="Post title....."
+        android:textColorHint="#000" />
 
     <EditText
         android:id="@+id/description"
@@ -55,12 +56,13 @@
         android:paddingBottom="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:inputType="textMultiLine" />
+        android:inputType="textMultiLine"
+        android:textColorHint="#000"/>
 
     <Button
         android:id="@+id/submit"
         android:layout_width="match_parent"
-        android:background="@color/theme_primary"
+        android:background="@color/back"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textStyle="bold"
@@ -68,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:text="Submit Post" />
+        android:text="Submit Post"/>
 
     <Button
         android:id="@+id/button4"
@@ -77,5 +79,7 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/description"
         android:layout_marginEnd="28dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_background"
         android:text="Analyze"/>
 </RelativeLayout>

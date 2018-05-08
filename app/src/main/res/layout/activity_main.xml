@@ -11,7 +11,7 @@
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/lightred"
+        android:background="@color/back"
         android:id="@+id/tb"
         ></android.support.v7.widget.Toolbar>
 
