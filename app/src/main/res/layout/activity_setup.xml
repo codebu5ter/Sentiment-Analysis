@@ -10,7 +10,7 @@
         android:id="@+id/tb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/back"></android.support.v7.widget.Toolbar>
+        android:background="@color/back1"></android.support.v7.widget.Toolbar>
 
     <ImageButton
         android:id="@+id/profilepicture"
@@ -47,7 +47,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:text="Finish Setup"
-        android:background="@color/back"
+        android:background="@color/back1"
         android:textColor="@color/white"
         android:textAllCaps="false"
         android:textSize="18sp" />

@@ -10,7 +10,7 @@
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:background="@color/back"
+        android:background="@color/back1"
         android:id="@+id/tb"
         ></android.support.v7.widget.Toolbar>
 
@@ -62,7 +62,7 @@
     <Button
         android:id="@+id/submit"
         android:layout_width="match_parent"
-        android:background="@color/back"
+        android:background="@color/back1"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textStyle="bold"

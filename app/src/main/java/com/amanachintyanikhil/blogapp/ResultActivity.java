@@ -19,7 +19,7 @@ import org.json.JSONObject;
 
 public class ResultActivity extends AppCompatActivity {
 
-    public static final String URL = "http://ace86dfb.ngrok.io";
+    public static final String URL = "https://08cdbba9.ngrok.io";
     public static final String TAG = "MA";
 
     @Override
