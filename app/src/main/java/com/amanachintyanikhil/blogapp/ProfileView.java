@@ -89,6 +89,24 @@ public class ProfileView extends AppCompatActivity {
                 else
                 {
                     fllw.setVisibility(View.VISIBLE);
+
+                    follow.child(userid).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            if(dataSnapshot.hasChild(currentuserid)) {
+                                fllw.setText("Unfollow");
+                            }
+                            else {
+                                fllw.setText("Follow");
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
                     fllw.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
