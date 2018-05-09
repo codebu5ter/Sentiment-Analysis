@@ -8,9 +8,12 @@ import android.transition.Explode;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class FrontActivity extends AppCompatActivity {
+
+    FirebaseAuth mAuth;
 
     Button login,register;
     @Override
@@ -19,6 +22,12 @@ public class FrontActivity extends AppCompatActivity {
         setContentView(R.layout.activity_front);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        mAuth = FirebaseAuth.getInstance();
+
+        if(mAuth.getCurrentUser() != null) {
+            startActivity(new Intent(FrontActivity.this, MainActivity.class));
+            finish();
+        }
 
         initAnim();
         login=(Button)findViewById(R.id.login);

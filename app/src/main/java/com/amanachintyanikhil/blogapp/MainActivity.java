@@ -4,10 +4,10 @@ import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Slide;
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().show();
 
         mBlogList=(RecyclerView)findViewById(R.id.recyclerview);
-        mBlogList.setHasFixedSize(true);
+       // mBlogList.setHasFixedSize(true);
         mBlogList.setLayoutManager(new LinearLayoutManager(this));
 
         mBlog= FirebaseDatabase.getInstance().getReference().child("Vlog");
