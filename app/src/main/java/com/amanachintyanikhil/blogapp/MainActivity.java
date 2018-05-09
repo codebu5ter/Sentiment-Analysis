@@ -201,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
     {
         View mview;
         ImageButton likebutton,commentbutton;
+        TextView likes;
         DatabaseReference mLike;
         FirebaseAuth mauth;
         TextView user;
@@ -211,6 +212,7 @@ public class MainActivity extends AppCompatActivity {
             likebutton=(ImageButton)mview.findViewById(R.id.likebtn_grey);
             commentbutton=(ImageButton)mview.findViewById(R.id.comment);
             user=(TextView)mview.findViewById(R.id.username);
+            likes=(TextView) mview.findViewById(R.id.textView6);
             mLike=FirebaseDatabase.getInstance().getReference().child("Likes");
             mauth=FirebaseAuth.getInstance();
 
@@ -226,8 +228,10 @@ public class MainActivity extends AppCompatActivity {
 
                         if (dataSnapshot.child(key).hasChild(mauth.getCurrentUser().getUid())) {
                             likebutton.setImageResource(R.drawable.thumbs_red);
+                            likes.setText("+"+String.valueOf(dataSnapshot.child(key).getChildrenCount()));
                         } else {
                             likebutton.setImageResource(R.drawable.thums_grey);
+                            likes.setText("+"+String.valueOf(dataSnapshot.child(key).getChildrenCount()));
                         }
                     }
 

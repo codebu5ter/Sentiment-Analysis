@@ -12,6 +12,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -45,6 +46,7 @@ public class TweetActivity extends Activity {
 	String ScreenName;
 	final static String LOG_TAG = "rnc";
 	ListView lv_list;
+	Button analyze_all;
 	ArrayList<String> al_text = new ArrayList<>();
 	TweetAdapter obj_adapter;
 
@@ -54,6 +56,7 @@ public class TweetActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tweet);
 		lv_list = (ListView)findViewById(R.id.lv_list);
+		analyze_all = (Button) findViewById(R.id.button5);
 
 		downloadTweets();
 	}
@@ -100,36 +103,49 @@ public class TweetActivity extends Activity {
 		// onPostExecute convert the JSON results into a Twitter object (which is an Array list of tweets
 		@Override
 		protected void onPostExecute(String result) {
-			Log.e("result",result);
-			dialog.dismiss();
+            Log.e("result", result);
+            dialog.dismiss();
 
-			try {
-				JSONArray jsonArray_data = new JSONArray(result);
-				al_text.clear();
-				for (int i=0; i<jsonArray_data.length();i++){
+            try {
+                JSONArray jsonArray_data = new JSONArray(result);
+                al_text.clear();
+                for (int i = 0; i < jsonArray_data.length(); i++) {
 
-					JSONObject jsonObject = jsonArray_data.getJSONObject(i);
-					al_text.add(jsonObject.getString("text"));
+                    JSONObject jsonObject = jsonArray_data.getJSONObject(i);
+                    al_text.add(jsonObject.getString("text"));
 
-				}
-			}catch (Exception e){
-				e.printStackTrace();
-			}
-			// send the tweets to the adapter for rendering
-			obj_adapter= new TweetAdapter(getApplicationContext(), al_text);
-			lv_list.setAdapter(obj_adapter);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            // send the tweets to the adapter for rendering
+            obj_adapter = new TweetAdapter(getApplicationContext(), al_text);
+            lv_list.setAdapter(obj_adapter);
 
-			lv_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-				@Override
-				public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            lv_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     String item = (String) lv_list.getItemAtPosition(i);
                     Intent intent = new Intent(TweetActivity.this, ResultActivity.class);
                     intent.putExtra("TWEET", item);
                     startActivity(intent);
+                }
+            });
 
-				}
-			});
-		}
+            analyze_all.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String item = "";
+                    for (int i = 0; i < lv_list.getCount(); i++) {
+                        String iter = (String) lv_list.getItemAtPosition(i);
+                        item = item + iter;
+                    }
+                    Intent intent = new Intent(TweetActivity.this, ResultActivity.class);
+                    intent.putExtra("TWEET", item);
+                    startActivity(intent);
+                }
+            });
+        }
 
 
 		// convert a JSON authentication object into an Authenticated object

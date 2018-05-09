@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".FrontActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,8 +31,7 @@
             android:name=".RegisterActivity"
             android:parentActivityName=".FrontActivity" />
         <activity
-            android:name=".LoginActivity"
-            android:parentActivityName=".FrontActivity" />
+            android:name=".MainActivity" />
         <activity
             android:name=".SetupActivity"
             android:parentActivityName=".RegisterActivity" />
@@ -47,7 +46,7 @@
         <activity
             android:name=".MyPosts"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".FrontActivity" />
+        <activity android:name=".LoginActivity" />
         <activity
             android:name=".CommentActivity"
             android:parentActivityName=".MainActivity" />
