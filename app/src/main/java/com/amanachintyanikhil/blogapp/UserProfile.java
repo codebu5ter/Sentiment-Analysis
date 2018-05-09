@@ -56,7 +56,7 @@ public class UserProfile extends AppCompatActivity {
         profiletoolbar.setNavigationIcon(R.drawable.navigationicon);
         getSupportActionBar().show();
         profiletoolbar.bringToFront();
-        pd=new ProgressDialog(this);
+
 
         timeline=(ImageView)findViewById(R.id.timeline);
         profilepic=(CircleImageView)findViewById(R.id.circleImageView);
@@ -90,14 +90,18 @@ public class UserProfile extends AppCompatActivity {
 
                 if (dataSnapshot.hasChild(mauth.getCurrentUser().getUid()))
                 {
-                    String id=mauth.getCurrentUser().getUid();
-                    String prfs = dataSnapshot.child(id).child("profession").getValue().toString();
-                    String date_of_birth = dataSnapshot.child(id).child("dob").getValue().toString();
-                    String tmlnimg = dataSnapshot.child(id).child("timelineimage").getValue().toString();
+                    try {
+                        String id = mauth.getCurrentUser().getUid();
+                        String prfs = dataSnapshot.child(id).child("profession").getValue().toString();
+                        String date_of_birth = dataSnapshot.child(id).child("dob").getValue().toString();
+                        String tmlnimg = dataSnapshot.child(id).child("timelineimage").getValue().toString();
 
-                    profession.setText(prfs);
-                    dob.setText(date_of_birth);
-                    Picasso.with(UserProfile.this).load(tmlnimg).into(timeline);
+                        profession.setText(prfs);
+                        dob.setText(date_of_birth);
+                        Picasso.with(UserProfile.this).load(tmlnimg).into(timeline);
+                    }catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
 
@@ -173,6 +177,7 @@ public class UserProfile extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        pd=new ProgressDialog(this);
         pd.setMessage("Saving details....");
         pd.setCanceledOnTouchOutside(false);
         pd.show();
@@ -193,7 +198,7 @@ public class UserProfile extends AppCompatActivity {
                     local.child("timelineimage").setValue(downloadUri.toString());
                     local.child("dob").setValue(uDob);
 
-                    pd.dismiss();
+                    //pd.dismiss();
                     Intent main = new Intent(UserProfile.this, MainActivity.class);
                     startActivity(main);
 
@@ -201,12 +206,11 @@ public class UserProfile extends AppCompatActivity {
             });
         }
         else {
-            pd.dismiss();
+            //pd.dismiss();
             Intent main = new Intent(UserProfile.this, MainActivity.class);
             startActivity(main);
-
         }
-
+        pd.dismiss();
 
     }
 }
