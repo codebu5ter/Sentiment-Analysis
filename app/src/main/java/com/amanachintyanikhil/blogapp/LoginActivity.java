@@ -50,6 +50,11 @@ public class LoginActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         mauth=FirebaseAuth.getInstance();
 
+        /*if(mauth.getCurrentUser() != null) {
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            finish();
+        }*/
+
         toolbar=(Toolbar)findViewById(R.id.tb);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Login");
