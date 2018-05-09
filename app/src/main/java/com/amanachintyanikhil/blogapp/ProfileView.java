@@ -148,11 +148,15 @@ public class ProfileView extends AppCompatActivity {
                 //fetching data from Profile
                 profile.child(userid).addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot)
-                    {
-                        udob.setText(dataSnapshot.child("dob").getValue().toString());
-                        uprofession.setText(dataSnapshot.child("profession").getValue().toString());
-                        Picasso.with(getApplicationContext()).load(dataSnapshot.child("timelineimage").getValue().toString()).into(timeline);
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.child("dob") != null) {
+                            udob.setText(dataSnapshot.child("dob").getValue().toString());
+                            uprofession.setText(dataSnapshot.child("profession").getValue().toString());
+                            Picasso.with(getApplicationContext()).load(dataSnapshot.child("timelineimage").getValue().toString()).into(timeline);
+                        }
+                        else {
+
+                        }
                     }
 
                     @Override
@@ -161,13 +165,7 @@ public class ProfileView extends AppCompatActivity {
                     }
                 });
 
-
             }
-
-
-
-
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
 

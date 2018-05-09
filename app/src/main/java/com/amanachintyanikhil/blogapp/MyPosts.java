@@ -1,7 +1,6 @@
 package com.amanachintyanikhil.blogapp;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -68,7 +67,7 @@ public class MyPosts extends AppCompatActivity {
 
         //  firebaseAuth.addAuthStateListener(authStateListener);
         FirebaseRecyclerAdapter<Blog,MainActivity.BlogViewHolder> firebaseRecyclerAdapter=new FirebaseRecyclerAdapter<Blog, MainActivity.BlogViewHolder>(
-                Blog.class,R.layout.blog_row,MainActivity.BlogViewHolder.class,currentuseridquery
+                Blog.class,R.layout.blog_row_post,MainActivity.BlogViewHolder.class,currentuseridquery
 
         ) {
             @Override
@@ -80,7 +79,7 @@ public class MyPosts extends AppCompatActivity {
                 viewHolder.setImage(model.getImage(),getApplicationContext());
                 // viewHolder.setUname(model.getUsername());
                 // viewHolder.setLikeButton(post_key);
-                viewHolder.mview.setOnClickListener(new View.OnClickListener() {
+              /*  viewHolder.mview.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         //Toast.makeText(MainActivity.this, post_key, Toast.LENGTH_SHORT).show();
@@ -88,9 +87,9 @@ public class MyPosts extends AppCompatActivity {
                         blogsinglactivity.putExtra("post_id",post_key);
                         startActivity(blogsinglactivity);
                     }
-                });
-                viewHolder.likebutton.setVisibility(View.INVISIBLE);
-                viewHolder.commentbutton.setVisibility(View.INVISIBLE);
+                });*/
+               // viewHolder.likebutton.setVisibility(View.INVISIBLE);
+                //viewHolder.commentbutton.setVisibility(View.INVISIBLE);
 
 
             }

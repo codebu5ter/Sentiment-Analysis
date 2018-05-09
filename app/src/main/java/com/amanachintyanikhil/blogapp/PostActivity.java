@@ -62,7 +62,7 @@ public class PostActivity extends AppCompatActivity {
 
 
         mBlog= FirebaseDatabase.getInstance().getReference().child("Vlog");
-        progressDialog=new ProgressDialog(this);
+
         imageButton=(ImageButton)findViewById(R.id.imageButton);
         title=(EditText)findViewById(R.id.title);
         description=(EditText)findViewById(R.id.description);
@@ -117,7 +117,7 @@ public class PostActivity extends AppCompatActivity {
         final String blog_title=title.getText().toString();
         final String blog_description=description.getText().toString();
 
-
+        progressDialog=new ProgressDialog(this);
         progressDialog.setMessage("Posting blog.....");
         progressDialog.show();
         if(!blog_title.isEmpty() && !blog_description.isEmpty() && mImageuri!=null)
@@ -142,7 +142,7 @@ public class PostActivity extends AppCompatActivity {
                             newpost.child("uid").setValue(id);
                             newpost.child("username").setValue(uname);
 
-                            progressDialog.dismiss();
+
                             Toast.makeText(PostActivity.this, "Posted Successfully", Toast.LENGTH_SHORT).show();
                         }
 
@@ -151,7 +151,7 @@ public class PostActivity extends AppCompatActivity {
 
                         }
                     });
-
+                    progressDialog.dismiss();
                     Intent mainactivity=new Intent(PostActivity.this,MainActivity.class);
                     mainactivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(mainactivity);

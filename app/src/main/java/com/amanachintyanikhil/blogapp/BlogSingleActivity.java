@@ -2,13 +2,14 @@ package com.amanachintyanikhil.blogapp;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +29,7 @@ public class BlogSingleActivity extends AppCompatActivity {
     String mPostkey=null;
     Button removePost;
     FirebaseAuth mauth;
+    String uid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,28 +59,34 @@ public class BlogSingleActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot)
             {
-                String blog_tit=dataSnapshot.child("title").getValue().toString();
-                String blog_description=dataSnapshot.child("desc").getValue().toString();
-                String blog_image=dataSnapshot.child("image").getValue().toString();
-                String uid=dataSnapshot.child("uid").getValue().toString();
+                try {
+                    String blog_tit = dataSnapshot.child("title").getValue().toString();
+                    String blog_description = dataSnapshot.child("desc").getValue().toString();
+                    String blog_image = dataSnapshot.child("image").getValue().toString();
+                    uid = dataSnapshot.child("uid").getValue().toString();
 
-                title.setText(blog_tit);
-                description.setText(blog_description);
-                Picasso.with(BlogSingleActivity.this).load(blog_image).into(blogimage);
-
-                if(mauth.getCurrentUser().getUid().equals(uid))
+                    title.setText(blog_tit);
+                    description.setText(blog_description);
+                    Picasso.with(BlogSingleActivity.this).load(blog_image).into(blogimage);
+                }catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+               if(mauth.getCurrentUser().getUid().equals(uid))
                 {
                     removePost.setVisibility(View.VISIBLE);
 
-                    removePost.setOnClickListener(new View.OnClickListener() {
+
+                   removePost.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view)
                         {
-                            mBlog.child(mPostkey).removeValue();
+                        removingpost(mPostkey);
+                           /* mBlog.child(mPostkey).removeValue();
 
                             Intent mainactivity=new Intent(BlogSingleActivity.this,MainActivity.class);
                             mainactivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(mainactivity);
+                            startActivity(mainactivity);*/
                         }
                     });
                 }
@@ -93,5 +101,15 @@ public class BlogSingleActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private void removingpost(final String mPostkeyy)
+    {
+
+                mBlog.child(mPostkeyy).removeValue();
+                Intent mainactivity=new Intent(BlogSingleActivity.this,MainActivity.class);
+                mainactivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(mainactivity);
+                Toast.makeText(this, "Post removed successfully", Toast.LENGTH_SHORT).show();
     }
 }
