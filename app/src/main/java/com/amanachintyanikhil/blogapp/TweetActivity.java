@@ -232,6 +232,7 @@ public class TweetActivity extends Activity {
 			} catch (UnsupportedEncodingException ex) {
 			} catch (IllegalStateException ex1) {
 			}
+            Log.d(LOG_TAG, "getTwitterStream: "+ results);
 			return results;
 		}
 	}
